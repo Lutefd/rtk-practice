@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { nanoid } from '@reduxjs/toolkit';
 interface Post {
   posts: [
     {
@@ -19,8 +19,21 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    postAdded(state, action) {
-      state.push(action.payload); // falar sobre immer
+    postAdded: {
+      reducer(state, action) {
+        state.push(action.payload);
+      }, // falar sobre immer
+      prepare(title: string, content: string) {
+        return {
+          payload: {
+            id: nanoid(),
+            title,
+            content,
+          },
+          meta: {},
+          error: {},
+        };
+      },
     },
   },
 });
