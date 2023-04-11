@@ -20,7 +20,7 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     postAdded(state, action) {
-      state.push(action.payload);
+      state.push(action.payload); // falar sobre immer
     },
   },
 });
