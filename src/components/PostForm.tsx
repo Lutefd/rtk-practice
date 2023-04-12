@@ -67,7 +67,6 @@ const PostForm = () => {
         </label>
         <select
           className="select select-primary w-full max-w-xs"
-          value={userId}
           onChange={(e) => handleUserId(e.target.value)}
         >
           <option disabled selected>
