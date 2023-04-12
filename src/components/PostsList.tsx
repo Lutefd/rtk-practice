@@ -4,10 +4,14 @@ import PostAuthor from './postAuthor';
 import TimeAgo from './createdTime';
 const PostsList = () => {
   const posts = useSelector(selectAllPosts);
+
+  const orderedPosts = posts
+    .slice()
+    .sort((a, b) => b.date.localeCompare(a.date));
   return (
     <>
       <div className="grid gap-2">
-        {posts.map((post) => (
+        {orderedPosts.map((post) => (
           <div
             className="card w-64 bg-primary text-primary-content shadow-xl"
             key={post.id}
