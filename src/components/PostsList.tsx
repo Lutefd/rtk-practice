@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectAllPosts } from '../store/services/posts/postsSlice';
 import PostAuthor from './postAuthor';
+import TimeAgo from './createdTime';
 const PostsList = () => {
   const posts = useSelector(selectAllPosts);
   return (
@@ -15,6 +16,7 @@ const PostsList = () => {
               <h2 className="card-title">{post.title}</h2>
               <p className="text-start">{post.content}</p>
               <PostAuthor userId={post.userId} />
+              <TimeAgo timestamp={post.date} />
             </div>
           </div>
         ))}
